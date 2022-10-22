@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "superheroes project",
+  "author": "pdcourses <freshitpt@gmail.com>",
+  "homepage": "https://github.com/pdcourses/fullstack-pd2022#readme",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Test script\" && exit 1",
+    "start": "node ./index.js",
+    "build": "nodemon ./index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.25.3",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.5.1"
+  }
+}
