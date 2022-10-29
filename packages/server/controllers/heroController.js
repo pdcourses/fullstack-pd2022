@@ -45,7 +45,7 @@ module.exports.getAllHeroes = async (req, res, next) => {
             },
             through: {attributes: []},
         });
-        console.log(foundHeroes);
+        //console.log(foundHeroes);
         const sendHeros = {};
         foundHeroes.forEach( i => {
             sendHeros[i.id] = i;
@@ -55,7 +55,7 @@ module.exports.getAllHeroes = async (req, res, next) => {
             i['Powers.id'] && sendHeros[i.id].superpowers.push(i['Powers.id']);
             delete i['Powers.id'];
         });
-        console.log(sendHeros);
+        //console.log(sendHeros);
         res.status(200).send({data: Object.values(sendHeros)});
     } catch(err){
         next(err);

@@ -22,10 +22,11 @@ function HeroList({
 
       const mapHeroes = ({id, nickname, originDescription, catchPhrase, realName, superpowers}) => (
       <li key={id}>
-        {nickname} {realName}
-        <p>{originDescription}</p>
-        <p>{catchPhrase}</p>
+        nickname: {nickname} ,realname:{realName}
+        <p>description: {originDescription}</p>
+        <p>catch phrase: {catchPhrase}</p>
         <ol>
+          <p>hero powers:</p>
           {powers.length && superpowers.map( s => (
             <li key={s}>
               {powers[powers.findIndex(i => s == i.id)].name}
