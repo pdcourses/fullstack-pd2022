@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 import { useEffect } from "react";
 import {
   getHeroesAction,
-  getHeroesRequest,
-  getHeroesSuccess,
-  getHeroesError,
 } from "../../actions/actionCreators";
 
 function HeroList({
@@ -13,11 +10,16 @@ function HeroList({
         getHeroes
 }) {
     useEffect( () => {
-
+      getHeroes();
     }, [heroes.length]);
 
-    const mapHeroes = ();
-
+    const mapHeroes = ({id, nickname, originDescription, catchPhrase, realName}) => (
+      <li key={id}>
+        {nickname} {realName}
+        <p>{originDescription}</p>
+        <p>{catchPhrase}</p>
+      </li>
+    );
   return(
     <>
     {isFetching && <div>loading...</div>}
@@ -27,7 +29,7 @@ function HeroList({
   )
 }
 
-const mapStateToProps = (heroes) => ({
+const mapStateToProps = (heroesReducer) => ({
     heroesReducer
 });
 
