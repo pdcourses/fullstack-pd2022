@@ -1,8 +1,11 @@
 import {combineReducers} from 'redux';
 import heroesReducer from './heroesReducer';
+import powersReducer from './powersReducer';
+
 
 const rootReducer = combineReducers({
-    heroesReducer,
+    heroesData: heroesReducer,
+    powersData: powersReducer
 });
 
 export default rootReducer;

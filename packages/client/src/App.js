@@ -1,11 +1,11 @@
 import "./App.css";
-import Test from "./components/test";
+import HeroList from "./components/HeroList";
 
 function App() {
   return (
     <div>
-      test component
-      <Test />
+      HeroList component
+      <HeroList />
     </div>
   );
 }

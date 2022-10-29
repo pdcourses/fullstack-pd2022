@@ -7,12 +7,14 @@ import {
 import * as api from './../api';
 
 export function * getHeroesSaga(){
+    console.log('I am in hero saga');
     yield put(getHeroesRequest());
     try{
         const{
             data: {data}
         } = yield api.getHeroes();
         yield put(getHeroesSuccess(data));
+        console.log('answer:', data);
     } catch(err){
         put(getHeroesError(err));
     }
