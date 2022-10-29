@@ -26,6 +26,8 @@ module.exports.getAllHeroes = async (req, res, next) => {
                 exclude: ['createdAt', 'updatedAt'],
             }
         });
+        console.log(foundHeroes);
+        res.status(200).send({data: foundHeroes});
     } catch(err){
         next(err);
     }
@@ -35,22 +37,25 @@ module.exports.getAllHeroes = async (req, res, next) => {
 module.exports.getAllHeroes = async (req, res, next) => {
     try{
         const foundHeroes = await Hero.findAll({
+            raw: true,
             attributes: {exclude: ['createdAt', 'updatedAt']},
             include: {
                 model: Power,
-                attributes: {exclude: ['createdAt', 'updatedAt']},
+                attributes: {exclude: ['description','createdAt', 'updatedAt']},
             },
             through: {attributes: []},
         });
+        console.log(foundHeroes);
         const sendHeros = {};
-        foundHeroes.forEach( hero => {
-            sendHeros[hero.id] = hero;
-            sendHeros[hero.id].superpowers = [];
+        foundHeroes.forEach( i => {
+            sendHeros[i.id] = i;
+            sendHeros[i.id].superpowers = [];
         });
-        foundHeroes.forEach( hero => {
-            hero['Powers.id'] && sendHeros[hero.id].superpowers.push(hero['Powers.id']);
-            delete hero['Powers.id'];
+        foundHeroes.forEach( i => {
+            i['Powers.id'] && sendHeros[i.id].superpowers.push(i['Powers.id']);
+            delete i['Powers.id'];
         });
+        console.log(sendHeros);
         res.status(200).send({data: Object.values(sendHeros)});
     } catch(err){
         next(err);

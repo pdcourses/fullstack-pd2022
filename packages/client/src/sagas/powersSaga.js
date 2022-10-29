@@ -14,6 +14,6 @@ export function * getPowersSaga(){
         } = yield api.getPowers();
         yield put(getPowersSuccess(data));
     } catch(err){
-        put(getPowersError(err));
+       yield put(getPowersError(err));
     }
 }

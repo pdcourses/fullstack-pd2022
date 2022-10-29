@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const http = axios.create({ baseURL: 'http://localhost:5000/api'});
+const http = axios.create({ baseURL: 'http://127.0.0.1:5000/api'});
 
 //http methods - get, post, patch, delete
 //CRUD - create (post), read(get), update(patch), delete (delete)

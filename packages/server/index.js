@@ -5,5 +5,5 @@ const HOST = process.env.HOST || '127.0.0.1';
 
 const server = http.createServer(app);
 
-server.listen(HOST, PORT, 
+server.listen(PORT, HOST,
     () => console.log('Server is listening...'));

@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class HeroPower extends Model {
+  class HeroPowers extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,15 +13,30 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  HeroPower.init({
-    heroId: DataTypes.INTEGER,
-    powerId: DataTypes.INTEGER
-  }, {
+  HeroPowers.init({
+    heroId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Hero',
+        key: 'id',
+      },
+      onDelete: 'RESTRICT',
+      onUpdate: 'CASCADE',
+    },
+    powerId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Power',
+        key: 'id',
+      },
+      onDelete: 'RESTRICT',
+      onUpdate: 'CASCADE',
+  }}, {
     sequelize,
-    modelName: 'HeroPower',
+    modelName: 'HeroPowers',
     tableName: 'HeroPowers',
     //tableName: 'hero_powers'
     //underscored: true,
   });
-  return HeroPower;
+  return HeroPowers;
 };
