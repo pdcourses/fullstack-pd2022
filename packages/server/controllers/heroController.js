@@ -55,7 +55,7 @@ module.exports.getAllHeroes = async (req, res, next) => {
             i['Powers.id'] && sendHeros[i.id].superpowers.push(i['Powers.id']);
             delete i['Powers.id'];
         });
-        //console.log(sendHeros);
+       // console.log(sendHeros);
         res.status(200).send({data: Object.values(sendHeros)});
     } catch(err){
         next(err);
@@ -75,10 +75,10 @@ module.exports.getHeroById = async (req, res, next) => {
 };
 
 module.exports.deleteHeroById = async (req, res, next) => {
-    const { params: {heroId} } = req;
+    const { params: {id} } = req;
     try{
         const deletedHero = await Hero.destroy({
-            where: {id: heroId}
+            where: {id: id}
         });
         if(deletedHero) return res.status(204).send();
         next(createError(404, 'The hero not found'));

@@ -36,3 +36,24 @@ export const getPowersError = (err) => ({
     type: ACTION_TYPES.GET_POWERS_ERROR,
     err
 });
+
+// delete hero
+
+export const deleteHeroAction = (id) => ({
+    type: ACTION_TYPES.DELETE_HERO_ACTION,
+    id
+});
+
+export const deleteHeroRequest = () => ({
+    type: ACTION_TYPES.DELETE_HERO_REQUEST
+});
+
+export const deleteHeroSuccess = (id) => ({
+    type: ACTION_TYPES.DELETE_HERO_SUCCESS,
+    id
+});
+
+export const deleteHeroError = (err) => ({
+    type: ACTION_TYPES.DELETE_HERO_ERROR,
+    err
+});

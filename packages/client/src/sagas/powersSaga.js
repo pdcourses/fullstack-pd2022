@@ -12,6 +12,7 @@ export function * getPowersSaga(){
         const{
             data: {data}
         } = yield api.getPowers();
+        //console.log('powers', data);
         yield put(getPowersSuccess(data));
     } catch(err){
        yield put(getPowersError(err));
