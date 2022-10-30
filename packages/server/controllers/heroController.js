@@ -4,6 +4,7 @@ const _ = require('lodash');
 
 module.exports.createNewHero = async (req, res, next) => {
     const {body, file}= req;
+    console.log('body=',body);
     if(file){ body.image = file.filename; }
     if(! body.superpowers) { body.superpowers = [];}
     try{ 

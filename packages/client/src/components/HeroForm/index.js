@@ -22,13 +22,14 @@ const HeroForm = ({ createHero, powers}) => {
         formData.append('image', values.image); // server: multer req.file
         values.superpowers.forEach(s => formData.append('superpowers', s));
         createHero(formData);
+        //console.log(values);
         formikBag.resetForm();
     }
 
     const mapPowers = i => (
         <label key={i.id}>
             <Field type="checkbox" name="superpowers" value={String(i.id)} />
-            <span>{i.description}</span>
+            <span>{i.name}</span>
         </label>
     );
 
@@ -44,10 +45,12 @@ const HeroForm = ({ createHero, powers}) => {
                     <span>nickname hero</span>
                     <Field type="text" name='nickname' />
                 </label>
+                <br/>
                 <label>
                     <span>real name hero</span>
                     <Field type="text" name='realName' />
                 </label>
+                <br/>
                 <label>
                     <span>origin description hero</span>
                     <Field type="text" name='originDescription' />
@@ -66,6 +69,7 @@ const HeroForm = ({ createHero, powers}) => {
                     />
                 </label>
                 <br/>
+                <span>superpowers:</span>
                 {powers.map(mapPowers)}
                 <br/>
                 <button type="submit">Send data</button>

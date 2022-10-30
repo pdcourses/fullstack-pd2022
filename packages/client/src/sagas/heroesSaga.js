@@ -35,13 +35,12 @@ export function * deleteHeroSaga({id}){
     }
 }
 
-export function * createHeroSaga({data}){
+export function * createHeroSaga({data: newHero}){
     yield put(createHeroRequest());
     try{
         const{
             data: {data}
-        } = yield api.createHero(data);
-        console.log('new hero:',data);
+        } = yield api.createHero(newHero);
         yield put(createHeroSuccess(data));
     } catch(err){
        yield put(createHeroError(err));
