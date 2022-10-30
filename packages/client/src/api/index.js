@@ -9,7 +9,10 @@ export const getPowers = () => http.get('/powers');
 
 export const getHeroes = () => http.get('/heroes');
 
-export const deleteHero = (id) => http.delete(`/heroes/${id}`);
+export const deleteHero = (id) => {
+    //console.log('client. delete id = ', id);
+    http.delete(`/heroes/${id}`);
+}
 
 export const createHero = (data) => http.post('/heroes', data);
 

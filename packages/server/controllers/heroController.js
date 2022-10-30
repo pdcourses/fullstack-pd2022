@@ -75,10 +75,14 @@ module.exports.getHeroById = async (req, res, next) => {
 };
 
 module.exports.deleteHeroById = async (req, res, next) => {
-    const { params: {id} } = req;
+    const { params: {heroId} } = req;
+    const heroIdN = Number(heroId);
+    console.log('delete. req params=',req.params);
     try{
         const deletedHero = await Hero.destroy({
-            where: {id: id}
+            where: {
+                id : heroIdN,
+            },
         });
         if(deletedHero) return res.status(204).send();
         next(createError(404, 'The hero not found'));
