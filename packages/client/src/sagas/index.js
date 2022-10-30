@@ -1,6 +1,6 @@
 import { takeLatest } from "redux-saga/effects";
 import ACTION_TYPES from "../actions/actionTypes";
-import { getHeroesSaga, deleteHeroSaga} from "./heroesSaga";
+import { getHeroesSaga, deleteHeroSaga, createHeroSaga} from "./heroesSaga";
 import {getPowersSaga} from './powersSaga'
 
 function* rootSaga() {
@@ -10,6 +10,8 @@ function* rootSaga() {
     getPowersSaga);
   yield takeLatest(ACTION_TYPES.DELETE_HERO_ACTION, 
     deleteHeroSaga);
+  yield takeLatest(ACTION_TYPES.CREATE_HERO_ACTION, 
+    createHeroSaga);
 }
 
 export default rootSaga;

@@ -57,3 +57,24 @@ export const deleteHeroError = (err) => ({
     type: ACTION_TYPES.DELETE_HERO_ERROR,
     err
 });
+
+// create hero
+
+export const createHeroAction = (data) => ({
+    type: ACTION_TYPES.CREATE_HERO_ACTION,
+    data
+});
+
+export const createHeroRequest = () => ({
+    type: ACTION_TYPES.CREATE_HERO_REQUEST
+});
+
+export const createHeroSuccess = (data) => ({
+    type: ACTION_TYPES.CREATE_HERO_SUCCESS,
+    data
+});
+
+export const createHeroError = (err) => ({
+    type: ACTION_TYPES.CREATE_HERO_ERROR,
+    err
+});
