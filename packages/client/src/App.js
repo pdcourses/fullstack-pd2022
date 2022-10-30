@@ -1,12 +1,11 @@
 import "./App.css";
-import HeroList from "./components/HeroList";
+import HeroesPage from "./pages/HeroesPage";
 
 function App() {
   return (
-    <div>
-      HeroList component
-      <HeroList />
-    </div>
+    <>
+      <HeroesPage />
+    </>
   );
 }
 
